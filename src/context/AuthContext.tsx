@@ -9,7 +9,7 @@ import { onAuthStateChanged, User } from "firebase/auth";
 import { auth } from "../lib/firebase";
 
 type authContextState = {
-  user: null;
+  user: User;
   authIsReady: boolean;
   dispatch?: Dispatch<authAction>;
 };
