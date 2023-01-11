@@ -15,11 +15,11 @@ const useLogin = () => {
 
     try {
       const response = await signInWithEmailAndPassword(auth, email, password);
-      console.log("user signed up: ", response);
+      // console.log("user signed up: ", response);
       if (!response) throw Error;
 
       // dispatch login action
-      dispatch && dispatch({ type: "LOGIN", payload: response });
+      dispatch && dispatch({ type: "LOGIN", payload: response.user });
 
       // update state
       if (!isCancelled) {

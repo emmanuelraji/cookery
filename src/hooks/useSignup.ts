@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useAuthContext } from "./useAuthContext";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../lib/firebase";
+import { updateProfile } from "firebase/auth";
 
 const useSignUp = () => {
   const [isCancelled, setIsCancelled] = useState(false);
@@ -20,8 +21,13 @@ const useSignUp = () => {
         password
       );
       // console.log('user signed up: ', response);
-      console.log(response);
+
       if (!response) throw Error;
+
+      // add display name to user
+      updateProfile(response.user, {
+        displayName: displayName,
+      });
 
       // dispatch login action
       dispatch && dispatch({ type: "LOGIN", payload: response });
