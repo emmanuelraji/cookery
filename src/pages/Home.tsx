@@ -1,7 +1,16 @@
+import AddFoodForm from "../components/AddFoodForm";
+
 function Home() {
   return (
     <main>
-      <h1>Home Page</h1>
+      <div className="max-w-4xl m-auto grid grid-cols-3">
+        <section>
+          <h2>Food List</h2>
+        </section>
+        <aside>
+          <AddFoodForm />
+        </aside>
+      </div>
     </main>
   );
 }
