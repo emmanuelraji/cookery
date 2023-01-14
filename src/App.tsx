@@ -14,7 +14,7 @@ import Signup from "./pages/Signup";
 function App() {
   const { authIsReady, user } = useAuthContext();
   return (
-    <div>
+    <>
       {authIsReady && (
         <Router>
           <Header />
@@ -34,7 +34,7 @@ function App() {
           </Routes>
         </Router>
       )}
-    </div>
+    </>
   );
 }
 

@@ -16,7 +16,7 @@ function Header() {
         <ul className="flex gap-4">
           {user && (
             <>
-              <li>hello, {user.email}</li>
+              <li>{user.displayName}</li>
               <li>
                 <button onClick={logout}>logout</button>
               </li>
