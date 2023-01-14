@@ -25,12 +25,12 @@ const useSignUp = () => {
       if (!response) throw Error;
 
       // add display name to user
-      updateProfile(response.user, {
+      await updateProfile(response.user, {
         displayName: displayName,
       });
 
       // dispatch login action
-      dispatch && dispatch({ type: "LOGIN", payload: response });
+      dispatch && dispatch({ type: "LOGIN", payload: response.user });
 
       // update state
       if (!isCancelled) {
@@ -41,9 +41,8 @@ const useSignUp = () => {
       setIsLoading(false);
     } catch (error) {
       if (error instanceof Error) {
-        const message = error.message;
         if (!isCancelled) {
-          setError(message);
+          setError(error.message);
           setIsLoading(false);
         }
       }

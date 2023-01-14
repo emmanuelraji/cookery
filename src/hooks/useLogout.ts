@@ -28,9 +28,8 @@ const useLogout = () => {
       setIsLoading(false);
     } catch (error) {
       if (error instanceof Error) {
-        const message = error.message;
         if (!isCancelled) {
-          setError(message);
+          setError(error.message);
           setIsLoading(false);
         }
       }
