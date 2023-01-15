@@ -2,7 +2,6 @@ import {
   BrowserRouter as Router,
   Route,
   Routes,
-  Link,
   Navigate,
 } from "react-router-dom";
 import Header from "./components/Header";
@@ -13,6 +12,7 @@ import Signup from "./pages/Signup";
 
 function App() {
   const { authIsReady, user } = useAuthContext();
+
   return (
     <>
       {authIsReady && (

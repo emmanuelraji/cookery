@@ -8,17 +8,19 @@ function Header() {
   const { logout, isLoading, error } = useLogout();
 
   return (
-    <header className="bg-white mb-4">
-      <div className="h-12 px-2 flex justify-between items-center">
+    <header className="bg-indigo-600 mb-4 text-white">
+      <div className="h-12 max-w-2xl m-auto flex justify-between items-center">
         <Link to="/">
           <h1 className="font-extrabold">cookery</h1>
         </Link>
-        <ul className="flex gap-4">
+        <ul className="flex gap-4 items-center">
           {user && (
             <>
-              <li>{user.displayName}</li>
+              <li>Hello, {user.displayName}</li>
               <li>
-                <button onClick={logout}>logout</button>
+                <button onClick={logout} className="text-white">
+                  Logout
+                </button>
               </li>
             </>
           )}

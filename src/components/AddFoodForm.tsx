@@ -16,7 +16,7 @@ function AddFoodForm() {
   }
 
   return (
-    <div className="bg-white p-8 rounded">
+    <div className="bg-white p-8 rounded border">
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label htmlFor="food">Food name</label>
