@@ -8,6 +8,7 @@ type foodType = {
   id: string;
   foodItem: string;
   qty: string;
+  category: string;
 };
 
 function FoodList({ foods }: foodProps) {
@@ -21,7 +22,9 @@ function FoodList({ foods }: foodProps) {
           className="bg-white py-4 px-4 mb-4 rounded border drop-shadow-lg border-l-4 border-l-indigo-600"
         >
           <div className="flex justify-between items-center relative">
-            <h3>{food.foodItem}</h3>
+            <h3>
+              {food.foodItem} ({food.category})
+            </h3>
             <p className="mr-8">
               Qty
               <span> {food.qty}</span>
