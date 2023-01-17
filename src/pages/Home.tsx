@@ -1,5 +1,4 @@
-import AddFoodForm from "../components/AddFoodForm";
-import FoodList from "../components/FoodList";
+import Category from "../components/Category";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useCollection } from "../hooks/useCollection";
 
@@ -13,15 +12,11 @@ function Home() {
 
   return (
     <main>
-      <div className="max-w-2xl m-auto mt-8 grid grid-cols-5 gap-8">
+      <div className=" mt-8 grid grid-cols-8 gap-8">
         <section className="col-start-1 col-end-4">
-          {error && <p>{error}</p>}
-          {documents && <FoodList foods={documents} />}
+          <Category />
         </section>
-        <aside className="col-start-4 col-end-6">
-          <h2 className="mb-4 text-indigo-600 font-bold">Add Food Item</h2>
-          <AddFoodForm />
-        </aside>
+        <aside className="col-start-4 col-end-9"></aside>
       </div>
     </main>
   );
