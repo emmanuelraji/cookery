@@ -9,14 +9,15 @@ import {
   WhereFilterOp,
   orderBy,
   OrderByDirection,
+  DocumentData,
 } from "firebase/firestore";
 
 export const useCollection = (
   c: string,
-  _q: [string, WhereFilterOp, string],
-  _o: [string, OrderByDirection]
+  _q?: [string, WhereFilterOp, string],
+  _o?: [string, OrderByDirection]
 ) => {
-  const [documents, setDocuments] = useState<[] | null>(null);
+  const [documents, setDocuments] = useState<DocumentData[] | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   // set up query
