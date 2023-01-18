@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../hooks/useAuthContext";
 import useLogout from "../hooks/useLogout";
@@ -8,10 +7,10 @@ function Header() {
   const { logout, isLoading, error } = useLogout();
 
   return (
-    <header className="bg-indigo-600 mb-4 text-white">
+    <header className="bg-pink-700 mb-4 text-white">
       <div className="h-12 max-w-2xl m-auto flex justify-between items-center">
         <Link to="/">
-          <h1 className="font-extrabold">cookery</h1>
+          <h1 className="font-extrabold">Cookery</h1>
         </Link>
         <ul className="flex gap-4 items-center">
           {user && (

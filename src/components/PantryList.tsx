@@ -1,32 +1,16 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import cusine from "../assets/all-cuisines.png";
 import PantryItem from "./PantryItem";
-import { doc, setDoc } from "firebase/firestore";
 import { db } from "../lib/firebase";
-import { DocumentData } from "firebase/firestore";
-import { useCollection } from "../hooks/useCollection";
+import { doc, setDoc, DocumentData } from "firebase/firestore";
 
-function PantryList() {
-  const { documents } = useCollection("essentials");
-  const numOfItemsSelected = documents?.filter((doc) => doc.selected).length;
-
-  const [foodItems, setFoodItems] = useState<DocumentData[] | null>([]);
-  const [numOfDocumentItems, setNumOfDocuments] = useState(0);
+function PantryList({ documents }: { documents: DocumentData[] | null }) {
   const [limit, setLimit] = useState(10);
 
-  useEffect(() => {
-    let count = 0;
-    let foods =
-      documents?.filter((item, index) => {
-        count++;
-        if (index < limit) {
-          return item;
-        }
-      }) ?? [];
+  const numOfItemsSelected = documents?.filter((doc) => doc.selected).length;
+  const numOfDocumentItems = documents?.length ?? 0;
 
-    setNumOfDocuments(count);
-    setFoodItems(foods);
-  }, [documents, limit]);
+  const foodItems = documents?.filter((_, index) => index < limit);
 
   async function handleChange(document: DocumentData) {
     const ref = doc(db, "essentials", document.id);
