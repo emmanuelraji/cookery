@@ -42,7 +42,7 @@ const useLogin = () => {
     return () => setIsCancelled(true);
   }, []);
 
-  return { isLoading, signUp: login, error };
+  return { isLoading, login, error };
 };
 
 export default useLogin;

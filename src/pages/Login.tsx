@@ -5,12 +5,12 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const { isLoading, signUp, error } = useLogin();
+  const { isLoading, login, error } = useLogin();
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
 
-    signUp(password, email);
+    login(password, email);
   }
 
   return (
@@ -44,9 +44,20 @@ function Login() {
               className="border px-3 py-1 w-full rounded"
             />
           </div>
-          <button className="bg-indigo-600 py-2 w-full rounded text-white">
-            Continue
-          </button>
+          {!isLoading && (
+            <button className="bg-indigo-600 py-2 w-full rounded text-white">
+              Continue
+            </button>
+          )}
+          {isLoading && (
+            <button
+              className="bg-indigo-600 py-2 w-full rounded text-white"
+              disabled
+            >
+              loading
+            </button>
+          )}
+          {error && <div className="text-red-500">{error}</div>}
         </form>
       </div>
     </section>
